@@ -949,6 +949,7 @@ ul li a:focus {
 
 .bg-danger {
   background-color: #FF6656 !important;
+  
 }
 
 .bg-warning {
@@ -1038,7 +1039,7 @@ ul li a:focus {
   transition: all 0.7s ease !important;
   content: "" !important;
   position: absolute !important;
-  background: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(25, 255, 255, 0.2) !important;
   z-index: 99 !important;
   left: 15% !important;
   right: 15% !important;
@@ -5421,11 +5422,11 @@ ul li a:focus {
   border: 10px solid transparent;
   border-bottom-color: #fff;
   z-index: 1;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -ms-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.50s ease-in-out;
+  -moz-transition: 0.50s ease-in-out;
+  -ms-transition: 0.50s ease-in-out;
+  -o-transition: 0.50s ease-in-out;
+  transition: 0.50s ease-in-out;
 }
 
 .nav-tabs.nav-tabs-v5 li:after {
@@ -5671,20 +5672,21 @@ ul li a:focus {
 .sub-mimin-mobile-menu-list {
   display: none;
   padding: 0;
-  height: 300px;
+ // height: 300px;
+  height: 400px;
   font-weight: 100;
   overflow: auto;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .sub-mimin-mobile-menu-list .fa{margin-right: 10px;}
 
 #mimin-mobile.animate {
-  -webkit-animation: mobile-menubg 0.75s linear;
-  -moz-animation: mobile-menubg 0.75s linear;
-  -ms-animation: mobile-menubg 0.75s linear;
-  -o-animation: mobile-menubg 0.75s linear;
-  animation: mobile-menubg 0.75s linear;
+  -webkit-animation: mobile-menubg 0.50s linear;
+  -moz-animation: mobile-menubg 0.50s linear;
+  -ms-animation: mobile-menubg 0.50s linear;
+  -o-animation: mobile-menubg 0.50s linear;
+  animation: mobile-menubg 0.50s linear;
 }
 
 #mimin-mobile .ink {
@@ -5693,27 +5695,27 @@ ul li a:focus {
 }
 
 #mimin-mobile .ink.animate {
-  -webkit-animation: ripple-mobile 0.75s linear;
-  -moz-animation: ripple-mobile 0.75s linear;
-  -ms-animation: ripple-mobile 0.75s linear;
-  -o-animation: ripple-mobile 0.75s linear;
-  animation: ripple-mobile 0.75s linear;
+  -webkit-animation: ripple-mobile 0.50s linear;
+  -moz-animation: ripple-mobile 0.50s linear;
+  -ms-animation: ripple-mobile 0.50s linear;
+  -o-animation: ripple-mobile 0.50s linear;
+  animation: ripple-mobile 0.50s linear;
 }
 
 #mimin-mobile.reverse.animate {
-  -webkit-animation: mobile-menubg-reverse 0.75s linear !important;
-  -moz-animation: mobile-menubg-reverse 0.75s linear !important;
-  -ms-animation: mobile-menubg-reverse 0.75s linear !important;
-  -o-animation: mobile-menubg-reverse 0.75s linear !important;
-  animation: mobile-menubg-reverse 0.75s linear !important;
+  -webkit-animation: mobile-menubg-reverse 0.50s linear !important;
+  -moz-animation: mobile-menubg-reverse  0.50s linear !important;
+  -ms-animation: mobile-menubg-reverse  0.50s linear !important;
+  -o-animation: mobile-menubg-reverse  0.50s linear !important;
+  animation: mobile-menubg-reverse  0.50s linear !important;
 }
 
 #mimin-mobile.reverse .ink.animate {
-  -webkit-animation: ripple-mobile-reverse 0.75s linear !important;
-  -moz-animation: ripple-mobile-reverse 0.75s linear !important;
-  -ms-animation: ripple-mobile-reverse 0.75s linear !important;
-  -o-animation: ripple-mobile-reverse 0.75s linear !important;
-  animation: ripple-mobile-reverse 0.75s linear !important;
+  -webkit-animation: ripple-mobile-reverse  0.50s linear !important;
+  -moz-animation: ripple-mobile-reverse  0.50s linear !important;
+  -ms-animation: ripple-mobile-reverse  0.50s linear !important;
+  -o-animation: ripple-mobile-reverse  0.50s linear !important;
+  animation: ripple-mobile-reverse  0.50s linear !important;
 }
 
 @keyframes ripple-mobile-reverse {
@@ -6009,21 +6011,21 @@ ul li a:focus {
 }
 
 .form-animate-checkbox .checkbox:before {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   content: "";
   position: absolute;
   left: 0;
@@ -6161,7 +6163,7 @@ ul li a:focus {
 
 
 .form-group.form-animate-text.form-animate-error .bar:before,.form-group.form-animate-text.form-animate-error .bar:after{
-  background-color: #59bfff !important;
+    background-color: #59bfff !important;
   width: 50%;
 }
 
