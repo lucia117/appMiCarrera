@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.univac.micarrera" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Mi Carrera</name>
+    <description>            
+    - Vista del estado académico del alumno
+    - Vista de los analitico
+    - Inscripción a exámenes
+    - Vista de cursado y notas de parciales del alumno
+    - Vista de las materias del plan que cursa el alumno
+    - Vista  de inasistencia del alumno
+
+    </description>
+   <author href="https://www.univac.com.ar" email="univac.isi@gmail.com"> UNIVAC Team </author>
+
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <preference name="android-minSdkVersion" value="19"/>
+    <preference name="android-targetSdkVersion" value="27"/>
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <icon src="www/res/icon/android/mipmap-mdpi.png" density="mdpi"/>
+        <icon src="www/res/icon/android/mipmap-hdpi.png" density="hdpi"/>
+        <icon src="www/res/icon/android/mipmap-xhdpi.png" density="xhdpi"/>
+        <icon src="www/res/icon/android/mipmap-xxhdpi.png" density="xxhdpi"/>
+        <icon src="www/res/icon/android/mipmap-xxxhdpi.png" density="xxxhdpi"/>
+
+        <allow-intent href="market:*" />
+    </platform>
+   
+</widget>
+

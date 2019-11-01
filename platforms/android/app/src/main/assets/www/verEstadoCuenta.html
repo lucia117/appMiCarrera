@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="description" content="Mi Carrera-Pkataforma para institutos de enseñansa superios creado por UNIVAC ISI">
+        <meta name="author" content="Univac ISI Team">
+        <meta name="keyword" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Mi Carrera - Bienvenida</title>
+
+        <!-- start: Css -->
+        <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <!-- plugins -->
+        <link rel="stylesheet" type="text/css" href="asset/css/plugins/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="asset/css/plugins/simple-line-icons.css" />
+        <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css" />
+        <link rel="stylesheet" type="text/css" href="asset/css/plugins/fullcalendar.min.css" />
+        <link href="asset/css/style.css" rel="stylesheet">
+        <link href="asset/css/HoldOn.min.css" rel="stylesheet" type="text/css"/>
+        <!-- end: Css -->
+        <link rel="shortcut icon" href="asset/img/logomi.png">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+          <![endif]-->
+    </head>
+
+    <body id="mimin" class="dashboard">
+        <!-- start: Header -->
+        <nav class="navbar navbar-default header navbar-fixed-top">
+            <div class="col-md-12 nav-wrapper">
+                <div class="navbar-header" style="width:100%;">
+                    <div class="opener-left-menu is-open">
+                        <span class="top"></span>
+                        <span class="middle"></span>
+                        <span class="bottom"></span>
+                    </div>
+                    <a href="index.html" class="navbar-brand">  
+
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+        <!-- end: Header -->
+
+        <div class="container-fluid mimin-wrapper">
+            <!-- start:Left Menu -->
+            <div id="left-menu">
+                <div class="sub-left-menu scroll">
+                    <ul class="nav nav-list">
+
+                        <li>
+                            <div class="left-bg">
+
+                            </div>
+                        </li>
+
+                        <li class="ripple"><a href="cursado.html"><span class="icon icon-notebook"></span>Cursado</a></li>
+                        <li class="ripple"><a href="anuncios.html"><span class="icon icon-drawar"></span>Anuncios</a></li>
+                        <li class="ripple">
+                            <a class="tree-toggle nav-header"><span class="icon icon-note"></span> Inscripción
+                                <span class="fa-angle-right fa right-arrow text-right"></span>
+                            </a>
+                            <ul class="nav nav-list tree">
+                                <li><a href="500.html">Pre-Matriculación</a></li>
+                                <li><a href="examenes.html">Examenes</a></li>
+                            </ul>
+                        </li>
+                        <li class="ripple"><a href="analitico-1.html"><span class="icon icon-graduation"></span>Analitico</a></li>
+                        <li class="ripple"><a href="plan_estudio.html"><span class="icon icon-list "></span>Plan de Estudio</a></li>
+                        <li class="ripple"><a href="verEstadoCuenta.html"><span class="icon icon-credit-card"></span>Estado de Cuenta</a></li>
+                        <li class="ripple"><a href="500.html"><span class="fa fa-gear"></span>Configuraciones</a></li>
+                        <li class="ripple"><a href="index.html"><button class="btn ripple  btn-info"> Salir</button></a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- end: Left Menu -->
+
+
+
+            <!-- start: content -->
+            <div id="content" >
+                <div class="col-md-12">
+
+                    <h1 class="animated fadeInLeft">Estado de cuenta </h1>
+                    <hr>
+                </div>
+                <div class="col-md-12" >
+
+
+                    <div class="panel">
+                        <div class="panel-body ">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-striped  no-more-tables" id="tablaCuentas">
+                                            <thead>
+                                                <tr>
+                                                    <th>Concepto</th>
+                                                    <th>Importe</th>      
+                                                    <th>Asignación </th>    
+                                                </tr>
+                                            </thead>
+                                            <tbody id="bodyEstadoCuentas">
+                                                <tr id="row_0" class="hide">
+                                                    <td class="cocept"></td>
+                                                    <td class="import"></td>      
+                                                    <td class="assign"></td>    
+                                                </tr> 
+
+                                            </tbody>
+                                            <tr>
+                                                <th>Total</th>
+                                                <th class="totalEstadoCuenta"></th>      
+                                                <th> </th>  
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- end: content -->
+        
+        <!-- start: Mobile -->
+           <div id="mimin-mobile" class="reverse">
+                <div class="mimin-mobile-menu-list">
+                    <div class="col-md-12 sub-mimin-mobile-menu-list animated fadeInLeft">
+                        <ul class="nav nav-list">
+                            <li class="active ripple">
+                                <a href="cursado.html"><span class="icon icon-notebook"></span> Cursado</a>
+                            </li>
+                            <li class="active ripple">
+                                <a href="anuncios.html"><span class="icon icon-drawar"></span> Anuncios</a>
+                            </li>
+
+                            <li class="ripple">
+                                <a class="tree-toggle nav-header">
+                                    <span class="icon icon-note"></span>Inscripción
+                                    <span class="fa-angle-right fa right-arrow text-right"></span>
+                                </a>
+                                <ul class="nav nav-list tree">
+                                    <li><a href="500.html">Pre-Matriculación</a></li>
+                                    <li><a href="examenes.html">Examenes</a></li>
+                                </ul>
+                            </li>
+                            <li class="active ripple">
+                                <a href="analitico-1.html"><span class="icon icon-graduation"></span> Analitico</a>
+                            </li>
+                            <li class="active ripple">
+                                <a href="plan_estudio.html"><span class="icon icon-list"></span> Plan Estudio</a>
+                            </li>
+
+                            <li class="active ripple">
+                                <a href="verEstadoCuenta.html"><span class="icon icon-credit-card"></span> Estado Cuentas</a>
+                            </li>
+                            <li class="active ripple">
+                                <a href="500.html"><span class="fa fa-gear"></span> Configuración</a>
+                            </li>
+
+                            <li class="active ripple">
+                                <a href="index.html"><span class="icon icon-logout"></span> Salir</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        <button id="mimin-mobile-menu-opener" class="animated rubberBand btn btn-circle btn-danger">
+            <span class="fa fa-bars"></span>
+        </button>
+        <!-- end: Mobile -->
+
+        <!-- start: Javascript -->
+        <script src="asset/js/jquery.min.js"></script>
+        <script src="asset/js/jquery.ui.min.js"></script>
+        <script src="asset/js/bootstrap.min.js"></script>
+
+
+        <!-- plugins -->
+        <script src="asset/js/plugins/moment.min.js"></script>
+        <script src="asset/js/plugins/fullcalendar.min.js"></script>
+        <script src="asset/js/plugins/jquery.nicescroll.js"></script>
+        <script src="asset/js/plugins/jquery.vmap.min.js"></script>
+        <script src="asset/js/plugins/maps/jquery.vmap.world.js"></script>
+        <script src="asset/js/plugins/jquery.vmap.sampledata.js"></script>
+        <script src="asset/js/plugins/chart.min.js"></script>
+
+
+        <!-- custom -->
+        <script src="asset/js/main.js"></script>
+        <script>
+
+            var hoy = new Date();
+            var dd = hoy.getDate();
+            var mm = hoy.getMonth() + 1;
+            var yyyy = hoy.getFullYear();
+
+
+
+            console.log(dd + '/' + mm + '/' + yyyy);
+
+        </script>
+        <script src="asset/js/HoldOn.min.js" type="text/javascript"></script>
+
+
+
+        <!--API  -->
+        <script src="asset/js/scripts/api.js" type="text/javascript"></script>
+        <script src="asset/js/scripts/util.js" type="text/javascript"></script>
+        <script src="asset/js/scripts/estadoCuenta.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            estadoCuenta.init();
+        </script>
+
+
+
+
+
+
+        <!-- end: Javascript -->
+    </body>
+
+</html>
