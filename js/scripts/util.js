@@ -126,9 +126,28 @@ function sesionCerrada(){
         localStorage.clear();
         location.href = "index.html";
     }
+};
+
+
+function invertirFechaVista(fecha) {
+    return 'HOLA';
+    //return fecha.substring(8,10)+'-'+fecha.substring(5,7)+'-'+fecha.substring(0,4); 
+};
+
+function isEmpty(data) {
+    var r;
+    switch (data) {
+        case "":
+        case undefined:
+        case "undefined":
+        case null:
+        case "null":
+            r = true;
+            break;
+
+        default:
+            r = false;
+            break;
+    }
+    return r;
 }
-
-
-
-
-

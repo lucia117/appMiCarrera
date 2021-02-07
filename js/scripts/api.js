@@ -30,11 +30,26 @@ var Api = function () {
                     console.log(data);
                     console.log(data.datos.codigo);
                     respuesta = new Response(!data.error, "Login");
+                  //if (!isEmpty( data.datosAlumno)) {
+                    //if (data.datosAlumno.length > 0) {
+                    localStorage.setItem('dni', data.datos.codigo);
+                  
+                    localStorage.setItem('carreras', JSON.stringify(data.datosAlumno));
 
-                    localStorage.setItem('alumno_codigo', data.datos.codigo);
-                    localStorage.setItem('colegio', data.datos.colegio);
-                    localStorage.setItem('clectivo', data.datos.clectivo);
+                    localStorage.setItem('nombre', data.datosAlumno[0].nombre);
+                    localStorage.setItem('alumno_codigo', data.datosAlumno[0].codigo);
+                    localStorage.setItem('colegio', data.datosAlumno[0].colegio);
+                    localStorage.setItem('nombreColegio', data.datosAlumno[0].nombreColegio);
+                    localStorage.setItem('nombreCarrera', data.datosAlumno[0].nombreCarrera);
+                    localStorage.setItem('clave', data.datosAlumno[0].clave);
+                    localStorage.setItem('clectivo', data.datosAlumno[0].clectivo);
                     callback(respuesta);
+                 /* }else {
+                    respuesta = new Response(false, "Ocurrio un problema con su cuenta, comuniquese con la institucion para saber en el estado academico en el que se encuentra");
+                    callback(respuesta);
+                    
+                  }*/
+                   
                 } else {
                     respuesta = new Response(!data.error, data.mensaje);
                     callback(respuesta);
@@ -156,6 +171,27 @@ var Api = function () {
         });
     };
 
+	     var obtenerDatosArchivos = function (path_ws, callback) {
+        var url = urlBase + path_ws;
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            crossDomain: true,
+            contentType: 'application/x-www-form-urlencoded',
+            //            headers: {
+            //                Authorization: getToken()
+            //            },
+            success: function (data) {
+                 window.open(data.url);
+                 console.log(data.url); 
+                callback(respuesta);
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    };														  
     var guardarDatos = function (objetoPorGuardar, fd, ws, callback) {
         var respuestaJson;
         var url = urlBase + ws;
@@ -305,7 +341,7 @@ var Api = function () {
 
                 case 'PERFIL':
                     ws = '/alumno/perfil-alumno' +
-                        '?codigo=' + objeto.codigo +
+                        '?codigo=' + objeto.dni +
                         '&colegio=' + objeto.colegio;
                     break;
 
@@ -369,7 +405,8 @@ var Api = function () {
 
                 case 'VER_CONFIGURACION':
                     ws = '/alumno/alumno-configuracion' +
-                        '?codigo=' + objeto.codigo;
+                        '?codigo=' + objeto.codigo +
+                        '&dni=' + objeto.dni;
                     break;
 
                 case 'MENSAJES':
@@ -384,7 +421,13 @@ var Api = function () {
                         '&clectivo=' + objeto.clectivo +
                         '&materias=' + objeto.materias;
                     break;
+                    /******************************** */
 
+                    case 'OBTENER_CARRERAS_CURSANDO':
+                    ws = '/alumno/obtener-informacion-alumno' +
+                        '?codigo=' + objeto.codigo ;
+                    break;
+                    /******************************** */
 
                 default:
                     alert('No existe ws');
@@ -495,6 +538,55 @@ var Api = function () {
             }
 
         },
+		getPathFile: function (objeto, tipo) {
+            var callback = function(data) {
+                window.open(data.url, '_blank', 'fullscreen=yes');
+            };
+            
+            var ws;
+            switch (tipo) {
+                case 'CONSTANCIA_EXAMEN':
+                    ws = '/examen/obtener-constancia' +
+                        '?colegio=' + objeto.colegio +
+                        '&alumno=' + objeto.alumno +
+                        '&materia=' + objeto.materia +
+                        '&fecha=' + objeto.fecha +
+                        '&hora=' + objeto.hora +
+                        '&docente=' + objeto.docente +
+                        '&codigoMateria=' + objeto.codigo_materia +
+                        '&turno=' + objeto.turno;
+
+                    break;
+
+                case 'CONSTANCIA_PREINSCRIPCION':
+                    ws = '/examen/obtener-constancia-preinscripcion' +
+                        '?colegio=' + objeto.colegio +
+                        '&alumno=' + objeto.alumno +
+                        '&materias=' + objeto.materias;
+                    break;
+
+                case 'ANALITICO':
+                        ws = '/materia/obtener-analitico' +
+                            '?codigo=' + objeto.codigo +
+                            '&colegio=' + objeto.colegio +
+                            '&nombre=' + objeto.nombre +
+                            '&carrera=' + objeto.carrera +
+                            '&dni=' + objeto.dni;
+                   break;
+                   
+                case 'PLAN_ESTUDIO_PDF':
+                    ws = '/materia/obtener-plan-estudio-pdf' +
+                        '?colegio=' + objeto.colegio +
+                        '&codigo=' + objeto.codigo +
+                        '&carrera=' + objeto.carrera;
+                    break;  
+
+                default:
+                    alert('No existe ws');
+                    break;
+            }
+            obtenerDatosArchivos(ws, callback);
+        },									  
         getFile: function (objeto, tipo) {
             var ws;
             switch (tipo) {
@@ -510,6 +602,29 @@ var Api = function () {
                         '&turno=' + objeto.turno;
 
                     break;
+
+                case 'CONSTANCIA_PREINSCRIPCION':
+                    ws = '/examen/obtener-constancia-preinscripcion' +
+                        '?colegio=' + objeto.colegio +
+                        '&alumno=' + objeto.alumno +
+                        '&materias=' + objeto.materias;
+                    break;
+
+                case 'ANALITICO':
+                        ws = '/materia/obtener-analitico' +
+                            '?codigo=' + objeto.codigo +
+                            '&colegio=' + objeto.colegio +
+                            '&nombre=' + objeto.nombre +
+                            '&carrera=' + objeto.carrera +
+                            '&dni=' + objeto.dni;
+                   break;  
+                
+                case 'PLAN_ESTUDIO_PDF':
+                    ws = '/materia/obtener-plan-estudio-pdf' +
+                        '?colegio=' + objeto.colegio +
+                        '&codigo=' + objeto.codigo +
+                        '&carrera=' + objeto.carrera;
+                    break;  
 
                 default:
                     alert('No existe ws');

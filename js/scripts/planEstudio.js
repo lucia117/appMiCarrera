@@ -55,6 +55,23 @@ var planEstudio = function () {
         }
     };
 
+    $('.btnDescargarPlanEstudio').click(function(){
+        var nombre = localStorage.getItem('nombre') ;  
+        var carrera = localStorage.getItem('nombreCarrera') ;  
+        var dni = localStorage.getItem('dni') ;  
+        
+        
+        var objeto = {
+            colegio: colegio, 
+            codigo: codigo, 
+            nombre: nombre.trim(), 
+            carrera: carrera.trim(), 
+            dni: dni, 
+        }
+        Api.getPathFile(objeto, "PLAN_ESTUDIO_PDF");
+        
+    }); 
+
 
 
 

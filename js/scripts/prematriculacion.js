@@ -2,6 +2,12 @@
 var prematriculacion = function () {
     //variables globales
 
+    var datosConstancia = {
+        colegio: '',
+        alumno: '',
+        materias: ''
+    };
+
     //metodos privados
     var inicializacionDeComponentes = function () {
         colegio = localStorage.getItem('colegio');
@@ -28,7 +34,11 @@ var prematriculacion = function () {
                 var item = itemPadre.clone(true, true);
                 item.attr('id', 'row' + (key + 1));
                 item.removeClass('hide');
-                item.find('.pe_inscribir').attr({ 'id': 'materia' + (key + 1), 'materia': d.materia, 'curso': d.codigo });
+                
+                item.find('.pe_inscribir').attr('id', 'materia' + (key + 1));
+                item.find('.pe_inscribir').attr('materia', d.materia);
+                item.find('.pe_inscribir').attr('curso', d.codMat );
+                
                 item.find('.pe_nivel').text(d.cur);
                 item.find('.pe_nombre').text(d.nombre);
                 item.find('.condicion').attr('id', 'condicion' + (key + 1));
@@ -88,14 +98,24 @@ var prematriculacion = function () {
                     colegio: colegio,
                     codigo: codigo,
                     clectivo: clectivo,
-                    direccion : direccion,
-                    codigoPostal : codigoPostal,
-                    telefono : telefono,
+                    direccion: direccion,
+                    codigoPostal: codigoPostal,
+                    telefono: telefono,
                     materias: JSON.stringify(materiasInscribir)
                 };
+
+                datosConstancia.alumno = $('#alumnoPerfilNombre').text();
+                datosConstancia.colegio = $('#colegioPerfil').text();
+                datosConstancia.materias = materiaInscribir;
+
+                console.log(datosConstancia.alumno + ' ' + datosConstancia.colegio + ' ' + datosConstancia.materias);
+                
+                materiasInscribir.forEach(element => {
+                    console.log(element.materia);
+                });
                 Api.setStudentData(objeto, 'PREINSCRIBIR_MATERIAS', prematriculacion.prematriculacionOk);
                 // Api.getStudentData(objeto, 'PREMATRICULACIONPRUEBA', prematriculacion.prematriculacionOk);
-                HoldOnOn();
+                //HoldOnOn();
             }
 
 
@@ -137,9 +157,9 @@ var prematriculacion = function () {
             $('.btnInscribir').prop("disabled", false);
             $('.pe_inscribir').prop('checked', false);
             if (respuesta.estado) {
-                
-                
-                swal("Registro con exito!","","success");
+
+
+                swal("Registro con exito!", "", "success");
                 $('#modalRegisterForm').modal('hide')
 
 
@@ -155,14 +175,14 @@ var prematriculacion = function () {
                              swal("En breve se descargará la constancia", {
                                  icon: "success",
                              });
-                             //Api.getFile(datosConstancia, 'CONSTANCIA_EXAMEN');
+                             //Api.getPathFile(datosConstancia, 'CONSTANCIA_EXAMEN');
  
                          } else {
  
                          }
                      });*/
             } else {
-                swal("Atención!","warning");
+                swal("Atención!", "warning");
             }
         },
 

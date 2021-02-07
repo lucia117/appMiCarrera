@@ -1,24 +1,28 @@
 /* global Api */
 var cursado = function () {
     //variables globales
+    var dni; 
     var codigo;
     var colegio;
     var clectivo; 
 
     //metodos privados
     var inicializacionDeComponentes = function () {
+        dni: localStorage.getItem('dni'); 
         colegio = localStorage.getItem('colegio');
         codigo = localStorage.getItem('alumno_codigo');
         clectivo = localStorage.getItem('clectivo'); 
         var objeto = {
+            dni : dni, 
             colegio: colegio,
             codigo: codigo,  
             clectivo: clectivo
         };
+        
 
         Api.getStudentData(objeto, 'VER_CURSADO', cursado.cargarMaterias);
-        Api.getStudentData(objeto, 'PERFIL', cursado.cargarPerfil);
-        Api.getStudentData(objeto, 'VER_TURNO_EXAMEN', cursado.cargarFechaExamen);
+       Api.getStudentData(objeto, 'VER_TURNO_EXAMEN', cursado.cargarFechaExamen);
+        mostrarPerfil(); 
         
         HoldOnOn();
     };
@@ -30,10 +34,18 @@ var cursado = function () {
         location.href = "index.html";
     });
 
-    var mostrarPerfil = function (datos) {
-        $('#alumnoNombre').text(datos.nombre);
-        $('#alumnoDni').text(codigo);
-        $('#alumnoColegio').text(datos.colegio);
+    var mostrarPerfil = function () {
+        var dniPerfil = localStorage.getItem('dni'); 
+        var nombreAlumnoPerfil = localStorage.getItem('nombre'); 
+        var nombreColegioPerfil = localStorage.getItem('nombreColegio');
+        var nombreCarreraPerfil =localStorage.getItem('nombreCarrera');
+                
+        $('#alumnoNombre').text(nombreAlumnoPerfil);
+        $('#alumnoDni').text(dniPerfil);
+        $('#alumnoColegio').text(nombreColegioPerfil);
+        $('#alumnoCarrera').text(nombreCarreraPerfil);
+
+
     };
 
     var mostrarFechaExamen = function (datos) {
@@ -98,6 +110,9 @@ var cursado = function () {
         }
 
     };
+    
+
+
 
     //metodos publicos
     return {
@@ -106,6 +121,9 @@ var cursado = function () {
         init: function () {
             inicializacionDeComponentes();
         },
+
+        
+        
         cargarMaterias: function (respuesta) {
             HoldOnOff();
             if (respuesta.estado) {
@@ -124,6 +142,18 @@ var cursado = function () {
         cargarFechaExamen: function (respuesta) {
             if (respuesta.estado) {
                 mostrarFechaExamen(respuesta.objeto);
+            } else {
+                swal(respuesta.mensaje);
+            }
+        },
+
+        prueba: function (respuesta) {
+            HoldOnOff();
+            //mostrarNotasCursado(respuesta.objeto);
+                console.log(respuesta);
+            if (respuesta.estado) {
+                //mostrarNotasCursado(respuesta.objeto);
+                console.log(respuesta);
             } else {
                 swal(respuesta.mensaje);
             }

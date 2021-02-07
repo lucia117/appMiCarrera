@@ -2,13 +2,15 @@
 
 var configuracion = function () {
 //variables globales
-    //var codigo;
+    var codigo;
+    var dni; 
     //metodos privados
     var inicializacionDeComponentes = function () {
         codigo = localStorage.getItem('alumno_codigo');
-
+        dni = localStorage.getItem('dni'); 
         var objeto = {
-            codigo: codigo
+            codigo: codigo,
+            dni: dni
         };
 
         Api.getStudentData(objeto, 'VER_CONFIGURACION', configuracion.cargarConfiguracion);
@@ -31,12 +33,11 @@ var configuracion = function () {
 
     $('.btnCorreo').click(function () {
         var correo = $('.inputCorreo').val();
-        var codigo = localStorage.getItem('alumno_codigo');
-        //validarEmail(dato);
+
 
         if (validarEmail(correo) == true) {
             var objeto = {
-                codigo: codigo,
+                codigo: dni,
                 correo_electronico: correo
             };
             Api.setStudentData(objeto, 'MODIFICAR_CORREO', configuracion.correoOk);
@@ -70,14 +71,13 @@ var configuracion = function () {
         var contrasenia1 = $('.contrasenia1').val();
         var contrasenia2 = $('.contrasenia2').val();
         var contrasenia = $('.contrasenia').val();
-        var codigo = localStorage.getItem('alumno_codigo');
 
         if (contrasenia1 === contrasenia2) {
             if (contrasenia1.length >= 6) {
                 var objeto = {
                     contraseniaNueva: contrasenia1,
                     contrasenia: contrasenia,
-                    codigo: codigo
+                    codigo: dni
                 };
                 Api.setStudentData(objeto, 'MODIFICAR_CONTRASENIA', configuracion.contraseniaOk);
                 HoldOnOn();
@@ -92,12 +92,12 @@ var configuracion = function () {
 
     var mostrarConfiguracion = function (datos) {
 
-        $('.alumnoNombre').text(datos.nombre);
-        $('.alumnoDni').text(datos.codigo);
-        $('.alumnoDireccion').text(datos.direccion);
-        $('.alumnoTelefono').text(datos.te);
-        $('.alumnoCorreo').text(datos.email);
-        $('.alumnoContrasenia').text(datos.password);
+        $('.alumnoNombre').text(datos.datosPersonales.nombre);
+        $('.alumnoDni').text(dni);
+        $('.alumnoDireccion').text(datos.datosPersonales.direccion);
+        $('.alumnoTelefono').text(datos.datosPersonales.te);
+        $('.alumnoCorreo').text(datos.datosCuenta.email);
+        $('.alumnoContrasenia').text(datos.datosCuenta.password);
     };
 
     //metodos publicos
@@ -118,9 +118,13 @@ var configuracion = function () {
         correoOk: function (respuesta) {
             HoldOnOff();
             if (respuesta.estado) {
-                swal("Registro con exito!");
                 $('.inputCorreo').val("");
-                location.reload();
+                swal('',"Registro con exito!", 'success')
+                .then((value) => {
+                    location.reload();
+                });
+                
+                
 
             } else {
                 swal("Atención!");
@@ -129,9 +133,11 @@ var configuracion = function () {
         telefonoOk: function (respuesta) {
             HoldOnOff();
             if (respuesta.estado) {
-                swal("Registro con exito!");
                 $('.inputTelefono').val("");
-                location.reload();
+                swal('',"Registro con exito!",'success')
+                .then((value) => {
+                    location.reload();
+                });
             } else {
                 swal("Atención!");
             }
@@ -139,16 +145,21 @@ var configuracion = function () {
         contraseniaOk: function (respuesta) {
             HoldOnOff();
             if (respuesta.estado) {
-                swal(respuesta.mensaje);
-
-                swal(hola,{
-                    closeOnClickOutside: false,
-                });
 
                 $('.contrasenia').val("");
                 $('.contrasenia1').val("");
                 $('.contrasenia2').val("");
+                swal('',respuesta.mensaje, 'success')
+                .then((value) => {
+                    location.reload();
+                });
                // location.reload();
+               
+
+                $('.contrasenia').val("");
+                $('.contrasenia1').val("");
+                $('.contrasenia2').val("");
+               
             } else {
                 swal("Atención!",{
                     icon: "error",

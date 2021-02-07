@@ -70,7 +70,16 @@
           <!-- <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p> -->
           <h5 class="centered" > Bienvenido </h5>
           <h4 class="centered" id="alumnoPerfilNombre"><strong ><strong> </h4>
-          <li class="mt">
+          <h6 id="alumnoPerfilCarrera" class="centered" style="margin-bottom: 2px;"></h6>
+          <hr style="margin-top: 0px;margin-bottom: 0px;">
+          <h6 id="alumnoPerfilColegio" class="centered" style="margin-top: 2px;margin-bottom: 2px;" ></h6>
+          
+          <li class="mt" style="margin-top: 5px;">
+              <select name="" id="selectCarreras" class="form-control hide"> 
+              </select>
+            </li>
+          
+            <li class="mt">
             <a href="cursado.html">
               <i class="fa fa-book"></i>
               <span>Cursado</span>
@@ -170,9 +179,10 @@
           <div class="col-lg-3 ds">
             <!--DATOS ALUMNO-->
             <div class="donut-main">
-              <h3 id="alumnoNombre">NOMBRE ALUMNO</h3>
-              <b id="alumnoDni">33.333.333</b>
-              <h4 id="alumnoColegio">Nombre Colegio</h4>
+              <h3 id="alumnoNombre"></h3>
+              <b id="alumnoDni"></b>
+              <h4 id="alumnoCarrera"></h4>
+              <h4 id="alumnoColegio"></h4>
             </div>
             <!--datos alumnos-->
             <!--FECHA DE EXAMEN-->
@@ -329,7 +339,7 @@
   <script type="text/javascript">
     Perfil.init();
   </script>
-  <script>sesionCerrada();</script>
+  <script>//sesionCerrada();</script>
 
 
 
